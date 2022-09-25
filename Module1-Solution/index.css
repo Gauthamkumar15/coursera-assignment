@@ -1,0 +1,25 @@
+.margin-top {
+margin-top: 5px;
+}
+
+.green-color {
+    color:green;
+}
+
+.red-color {
+    color:red;
+}
+
+.border-green-color {
+    border-color:green;
+}
+
+.border-red-color {
+    border-color:red;
+}
+
+input {
+    border-width: 7px;
+    width: 100%;
+    border-style: solid;
+}

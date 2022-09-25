@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Lunch Checker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
+    <style>
+      .message { font-size: 1.3em; font-weight: bold; }
+    </style>
+  </head>
+<body ng-app = "LunchCheck">
+   <div class="container" ng-controller = "LunchCheckController">
+     <h1>Lunch Checker</h1>
+
+         <div class="form-group">
+             <input class = {{borderColor}} ng-model = "lunchInput" id="lunch-menu" type="text"
+             placeholder="list comma separated dishes you usually have for lunch"
+             class="form-control">
+             
+         </div>
+         <div class="form-group">
+             <button ng-click = "checkButtonClicked()" class="btn btn-default">Check If Too Much</button>
+         </div>
+         <div  class="form-group message">
+            <p class = {{resultColor}} ng-model = "lunchResult">{{lunchResult}}</p>
+         </div>
+
+
+         <ul class = "margin-top">
+          <li>Note:</li>
+          <li>Give the inputs separated by comma(,)</li>
+          <li>Not Considering empty as one Lunch Item (example:bread,,milk,apple) only 3 items</li>
+          <li>Text Color of result and border color of input will be green if the data is given properly.</li>
+          <li>Text Color of result ("Please enter data first") and border color of input will be red if the data is not given properly.</li>
+         </ul>
+
+         
+         
+   </div>
+
+   <script src = "https://code.angularjs.org/snapshot/angular.min.js"></script>
+   <script src = "app.js" ></script>
+</body>
+</html>
