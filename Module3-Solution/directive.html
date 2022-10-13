@@ -1,0 +1,8 @@
+<ul>
+  <li ng-repeat="a in ctrl.foundItem">
+  <hr/>
+    <h1>{{a.name}}</h1>
+    <p>{{ a.description }} </p>
+    <button class = "button" ng-click = "ctrl.onRemove({index:$index})" >Don't want this one!</button>
+  </li>
+</ul>
