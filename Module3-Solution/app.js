@@ -13,18 +13,34 @@
   function NarrowItDownController(MenuSearchService) {
     var ctrl = this;
     ctrl.found = [];
+    ctrl.foundOrNot = false;
     ctrl.narrowItDownIsClicked = function (input) {
       var promise = MenuSearchService.getMatchedMenuItems();
       promise.then(function (response) {
-        ctrl.found = response.data.menu_items.filter((eachItem) =>
-          eachItem.description.toLowerCase().includes(input)
-        );
-        console.log(ctrl.found);
+        console.log(input);
+        if (input == undefined || input == "") {
+          ctrl.found = [];
+          ctrl.foundOrNot = true;
+        } else {
+          ctrl.foundOrNot = false;
+          ctrl.found = response.data.menu_items.filter((eachItem) =>
+            eachItem.description.toLowerCase().includes(input.toLowerCase())
+          );
+          if (ctrl.found.length === 0) {
+            ctrl.found = [];
+            ctrl.foundOrNot = true;
+          }
+          console.log(ctrl.found);
+        }
       });
     };
 
     ctrl.removeItem = function (index) {
       ctrl.found.splice(index, 1);
+      if (ctrl.found.length === 0) {
+        ctrl.found = [];
+        ctrl.foundOrNot = true;
+      }
     };
   }
 
